@@ -15,6 +15,13 @@ class Statement(models.Model):
         max_length=255
     )
 
+    conversation = models.ForeignKey(
+        'Conversation',
+        related_name='statements',
+        blank=True,
+        null=True
+    )
+
     created_at = models.DateTimeField(
         default=timezone.now,
         help_text='The date and time that this statement was created at.'
